@@ -14,4 +14,8 @@ class Airline extends Model
         'name',
         'description'
     ];
+
+    public function facilities() {
+        return $this->belongsToMany(FlightClass::class, 'flight_class_facility', 'facility_id', 'flight_class_id');
+    }
 }

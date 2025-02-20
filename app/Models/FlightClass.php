@@ -15,4 +15,16 @@ class Airline extends Model
         'price',
         'total_seats'
     ];
+
+    public function flight() {
+        return $this->belongsTo(Flight::class);
+    }
+
+    public function facilities() {
+        return $this->belongsToMany(Facility::class, 'flight_class_facility', 'flight_class_id', 'facility_id');
+    }
+
+    public function transactions() {
+        return $this->hasMany(Transacsion::class);
+    }
 }
